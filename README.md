@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lejour Consulting — Investissement Courbevoie
 
-## Getting Started
+Site premium de présentation d'une opportunité d'investissement immobilier sélectionnée par Lejour Consulting.
 
-First, run the development server:
+Premier bien présenté : un studio dans la résidence étudiante Studéa Léonard de Vinci à Courbevoie.
+
+## Stack
+
+- Next.js 15 App Router + TypeScript
+- Tailwind CSS v4
+- Framer Motion (animations parcimonieuses)
+- Lucide React (icônes)
+- Web3Forms (formulaires)
+- Vercel (déploiement)
+
+## Structure
+
+- `src/data/property.ts` : fichier central de configuration du bien (le seul à modifier pour un nouveau bien).
+- `src/app/sections/` : sections de la page d'atterrissage.
+- `src/app/components/` : composants réutilisables.
+- `src/app/hooks/` : logique métier (envoi Web3Forms).
+- `public/images/` : photos du bien.
+- `public/documents/` : documents PDF.
+
+## Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Développement local
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .env.example .env.local
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ouvrir [http://localhost:3000](http://localhost:3000) dans le navigateur.
 
-## Learn More
+## Build
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Variables d'environnement
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | Clé d'accès Web3Forms |
+| `NEXT_PUBLIC_SITE_URL` | URL canonique (http://localhost:3000 en local) |
+| `NEXT_PUBLIC_GA_ID` | Identifiant Google Analytics 4 (optionnel) |
+| `NEXT_PUBLIC_GSC_TOKEN` | Token Google Search Console (optionnel) |
 
-## Deploy on Vercel
+## Publier un nouveau bien
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Remplacer les données dans `src/data/property.ts`
+2. Ajouter les photos dans `public/images/`
+3. Ajouter les documents PDF dans `public/documents/`
+4. Générer une image Open Graph de 1200×630 px (`public/og-image.webp`)
+5. Tester en local, puis pousser sur `main`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
