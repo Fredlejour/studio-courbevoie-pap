@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
-import { property } from "@/data/property";
+import { Mail, Phone, MapPin, FileDown, CalendarClock } from "lucide-react";
+import { property, type FormRequestType } from "@/data/property";
 import { SectionTitle } from "@/app/components/SectionTitle";
 import { ContactForm } from "@/app/components/ContactForm";
 import { cn } from "@/lib/utils";
@@ -19,77 +20,103 @@ function ContactBox({ icon, title, children }: ContactBoxProps) {
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy text-gold">
         {icon}
       </div>
-      <div>
+      <div className="min-w-0 flex-1">
         <p className="text-sm font-medium text-slate">{title}</p>
-        <div className="mt-1 text-navy">{children}</div>
+        <div className="mt-1 break-words text-navy">{children}</div>
       </div>
     </div>
   );
 }
 
+const tabs: Array<{ type: FormRequestType; label: string; icon: typeof FileDown }> = [
+  { type: "dossier", label: "Recevoir le dossier", icon: FileDown },
+  { type: "visite", label: "Organiser un échange / visite", icon: CalendarClock },
+];
+
 export function ContactSection() {
+  const { phone, email } = property.assets.presenter;
+  const [activeTab, setActiveTab] = useState<FormRequestType>("dossier");
+
   return (
     <section id="contact" className={cn("bg-cream py-24")}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Intéressé par ce dossier ?"
-          subtitle={`Recevez le dossier complet ou organisez un échange personnalisé avec l'équipe ${property.brand}.`}
+          subtitle={`Recevez le dossier complet ou organisez un échange personnalisé avec ${property.assets.presenter.name}.`}
           centered
         />
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
-          >
-            <ContactBox icon={<Mail className="h-5 w-5" />} title="Email">
-              <a href="mailto:contact@lejourconsulting.fr" className="font-semibold hover:text-gold">
-                contact@lejourconsulting.fr
-              </a>
-            </ContactBox>
-            <ContactBox icon={<Phone className="h-5 w-5" />} title="Téléphone">
-              <a href="tel:+33600000000" className="font-semibold hover:text-gold">
-                +33 6 00 00 00 00
-              </a>
-            </ContactBox>
-            <ContactBox icon={<MapPin className="h-5 w-5" />} title="Zone">
-              <p className="font-semibold">Courbevoie — Grand Paris</p>
-            </ContactBox>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="mt-12 grid gap-4 sm:grid-cols-3"
+        >
+          <ContactBox icon={<Mail className="h-5 w-5" />} title="Email">
+            <a href={`mailto:${email}`} className="font-semibold hover:text-gold">
+              {email}
+            </a>
+          </ContactBox>
+          <ContactBox icon={<Phone className="h-5 w-5" />} title="Téléphone">
+            <a href={`tel:${phone.replace(/\s/g, "")}`} className="font-semibold hover:text-gold">
+              {phone}
+            </a>
+          </ContactBox>
+          <ContactBox icon={<MapPin className="h-5 w-5" />} title="Adresse du bien">
+            <p className="font-semibold">{property.property.address}</p>
+          </ContactBox>
+        </motion.div>
 
-            <div className="rounded-2xl border border-gold/10 bg-navy p-6 text-cream">
-              <p className="text-gold font-semibold">{property.brand}</p>
-              <p className="mt-2 text-cream/80 text-sm">
-                Conseil en investissement immobilier sélectionné. Accompagnement personnalisé
-                et dossiers clés en main pour investisseurs privés et expatriés.
-              </p>
-              <p className="mt-4 text-xs text-cream/50">Réf. {property.reference}</p>
-            </div>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-4 rounded-2xl border border-gold/10 bg-navy p-6 text-center text-cream"
+        >
+          <p className="text-gold font-semibold">{property.brand}</p>
+          <p className="mx-auto mt-2 max-w-2xl text-sm text-cream/80">
+            Conseil en investissement immobilier sélectionné. Accompagnement personnalisé
+            et dossiers clés en main pour investisseurs privés et expatriés.
+          </p>
+          <p className="mt-3 text-xs text-cream/50">Réf. {property.reference}</p>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <ContactForm requestType="dossier" />
-          </motion.div>
-        </div>
-
-        <div className="mt-12">
-          <div className="rounded-2xl border border-gold/10 bg-white p-6 shadow-sm lg:max-w-3xl">
-            <h3 className="text-xl font-semibold text-navy">Organiser un échange ou une visite</h3>
-            <p className="mt-2 text-slate-dark">
-              Vous souhaitez discuter de l’opportunité ou visiter le bien ? Envoyez-nous votre disponibilité.
-            </p>
-            <div className="mt-6">
-              <ContactForm requestType="visite" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mt-10"
+        >
+          <div className="mb-6 flex flex-col items-center gap-2 sm:flex-row sm:justify-center">
+            <div className="grid w-full gap-2 rounded-full border border-gold/10 bg-white p-1.5 sm:inline-flex sm:w-auto">
+              {tabs.map((tab) => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.type;
+                return (
+                  <button
+                    key={tab.type}
+                    type="button"
+                    onClick={() => setActiveTab(tab.type)}
+                    className={cn(
+                      "inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors",
+                      isActive ? "bg-navy text-gold" : "text-slate hover:text-navy"
+                    )}
+                  >
+                    <Icon className="h-4 w-4" />
+                    {tab.label}
+                  </button>
+                );
+              })}
             </div>
           </div>
-        </div>
+
+          <div className="mx-auto max-w-3xl">
+            <ContactForm key={activeTab} requestType={activeTab} />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

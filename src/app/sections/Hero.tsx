@@ -1,17 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Building2 } from "lucide-react";
+import Image from "next/image";
+import { ArrowDown, Check } from "lucide-react";
 import { property } from "@/data/property";
 import { HighlightBlock } from "@/app/components/HighlightBlock";
 import { formatCurrency, formatPercent } from "@/lib/utils";
 
 export function Hero() {
   const highlights = [
-    { icon: "Building2" as const, label: "Résidence", value: property.property.residence },
-    { icon: "MapPin" as const, label: "Localisation", value: `${property.property.city} (${property.property.zipCode})` },
-    { icon: "TrendingUp" as const, label: "Rendement brut", value: formatPercent(property.investment.grossYield) },
-    { icon: "Key" as const, label: "Gestion", value: "Clé en main" },
+    {
+      icon: "TrendingUp" as const,
+      label: "Revenus annuels",
+      value: `${formatCurrency(property.investment.annualRent)} TTC`,
+    },
+    {
+      icon: "Euro" as const,
+      label: "Prix FAI",
+      value: `${formatCurrency(property.investment.price)}`,
+    },
+    {
+      icon: "TrendingUp" as const,
+      label: "Rendement après taxe foncière",
+      value: formatPercent(property.investment.yieldAfterTax),
+    },
+    { icon: "Key" as const, label: "Gestion", value: "Gestion locative déléguée" },
   ];
 
   return (
@@ -32,16 +45,39 @@ export function Hero() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <p className="text-sm font-semibold uppercase tracking-widest text-gold">
-              {property.brand}
+              Investissement immobilier rentable
             </p>
             <h1 className="mt-4 text-4xl font-semibold leading-tight text-cream md:text-5xl lg:text-6xl">
-              Investissement locatif clé en main à {property.property.city}
+              Investissez à Courbevoie et percevez immédiatement des revenus locatifs.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/80">
-              Découvrez une opportunité premium dans la résidence étudiante{" "}
-              <strong className="text-gold">{property.property.residence}</strong>. Un studio
-              sélectionné par {property.brand} pour les investisseurs exigeants.
+              Vous recherchez un investissement immobilier simple à gérer, déjà exploité et
+              générant des revenus dès votre acquisition ?
             </p>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-cream/70">
+              Ce studio meublé de {property.property.surface} m² situé dans la résidence
+              étudiante <strong className="text-gold">{property.property.residence}</strong>{" "}
+              répond précisément à ces attentes grâce à son bail commercial, sa gestion
+              entièrement déléguée et son rendement indicatif de{" "}
+              {formatPercent(property.investment.yieldAfterTax)} après taxe foncière.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              {[
+                "Revenus dès l'acquisition",
+                "Bail commercial en cours",
+                "Gestion entièrement déléguée",
+                `Rendement indicatif de ${formatPercent(property.investment.yieldAfterTax)}`,
+              ].map((benefit) => (
+                <span
+                  key={benefit}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-gold/20 bg-cream/5 px-3.5 py-1.5 text-xs font-medium text-cream/90"
+                >
+                  <Check className="h-3.5 w-3.5 text-gold" />
+                  {benefit}
+                </span>
+              ))}
+            </div>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
@@ -77,16 +113,20 @@ export function Hero() {
             className="relative hidden lg:block"
           >
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-gold/10 bg-gradient-to-br from-navy-light to-navy shadow-2xl">
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-cream/40">
-                <Building2 className="h-16 w-16" />
-                <p className="text-sm font-medium uppercase tracking-widest">
-                  Visuel du bien à venir
-                </p>
-              </div>
+              <Image
+                src={encodeURI(property.assets.residence[0].src)}
+                alt={property.assets.residence[0].alt}
+                fill
+                sizes="(max-width: 1024px) 0px, 50vw"
+                className="object-cover"
+                unoptimized
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/10 to-transparent" />
               <div className="absolute bottom-6 left-6 rounded-2xl bg-navy/80 p-5 backdrop-blur">
-                <p className="text-sm text-cream/70">Prix d’acquisition</p>
+                <p className="text-sm text-cream/70">Revenus annuels</p>
                 <p className="mt-1 text-3xl font-semibold text-gold">
-                  {formatCurrency(property.investment.price)}
+                  {formatCurrency(property.investment.annualRent)}
                 </p>
               </div>
             </div>

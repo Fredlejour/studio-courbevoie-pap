@@ -10,8 +10,8 @@ export function Documents() {
     <section id="documents" className="bg-cream py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Documents de l'investissement"
-          subtitle="Téléchargez le dossier complet ou le plan du bien. Pour toute pièce complémentaire, utilisez le formulaire de contact."
+          title="Téléchargez le dossier d'investissement"
+          subtitle="Consultez les principaux documents du bien afin d'étudier sereinement cette opportunité."
           centered
         />
 
@@ -23,7 +23,7 @@ export function Documents() {
           className="grid gap-6 md:grid-cols-2"
         >
           {property.documents.map((doc) => (
-            <DownloadCard key={doc.title} title={doc.title} file={doc.file} />
+            <DownloadCard key={doc.title} title={doc.title} file={doc.file} available={doc.available} />
           ))}
         </motion.div>
       </div>

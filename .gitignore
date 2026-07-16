@@ -31,6 +31,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files — only .env.example is committed
+.env
 .env.local
 .env.*.local
 .env.production

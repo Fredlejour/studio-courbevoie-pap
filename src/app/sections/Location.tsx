@@ -1,16 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Train, Building2, ShoppingBag, GraduationCap, Leaf } from "lucide-react";
+import { Train, Building2, ShoppingBag, GraduationCap, Leaf } from "lucide-react";
 import { property } from "@/data/property";
 import { SectionTitle } from "@/app/components/SectionTitle";
 import { cn } from "@/lib/utils";
 
+const LATITUDE = 48.8970336;
+const LONGITUDE = 2.2354627;
+const BBOX_DELTA = 0.004;
+const osmBbox = [
+  LONGITUDE - BBOX_DELTA,
+  LATITUDE - BBOX_DELTA / 1.4,
+  LONGITUDE + BBOX_DELTA,
+  LATITUDE + BBOX_DELTA / 1.4,
+].join(",");
+const osmEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${osmBbox}&layer=mapnik&marker=${LATITUDE},${LONGITUDE}`;
+const osmLinkUrl = `https://www.openstreetmap.org/?mlat=${LATITUDE}&mlon=${LONGITUDE}#map=17/${LATITUDE}/${LONGITUDE}`;
+
 const proximityItems = [
-  { icon: Train, label: "La Défense", value: "5 min" },
-  { icon: Building2, label: "Quartier d'affaires", value: "Puteaux / La Défense" },
-  { icon: ShoppingBag, label: "Commerces", value: "À proximité immédiate" },
-  { icon: GraduationCap, label: "Écoles & universités", value: "Étudiants / alternants" },
+  { icon: Train, label: "Transports en commun", value: "À proximité" },
+  { icon: Building2, label: "Secteur de La Défense", value: "Accès proche" },
+  { icon: ShoppingBag, label: "Commerces et services", value: "Du quotidien à proximité" },
+  { icon: GraduationCap, label: "Établissements d'enseignement supérieur", value: "Étudiants / alternants" },
   { icon: Leaf, label: "Cadre", value: "Résidence sécurisée" },
 ];
 
@@ -32,15 +44,20 @@ export function Location() {
             transition={{ duration: 0.5 }}
             className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-gold/10 bg-navy shadow-sm"
           >
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-cream/40">
-              <MapPin className="h-12 w-12" />
-              <p className="text-sm font-medium uppercase tracking-widest">
-                Carte interactive à venir
-              </p>
-              <p className="max-w-xs text-center text-xs text-cream/50">
-                {property.property.address}
-              </p>
-            </div>
+            <iframe
+              title="Localisation du bien"
+              src={osmEmbedUrl}
+              className="absolute inset-0 h-full w-full border-0"
+              loading="lazy"
+            />
+            <a
+              href={osmLinkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-4 right-4 rounded-full bg-navy/80 px-4 py-2 text-xs font-medium text-cream backdrop-blur transition hover:bg-navy"
+            >
+              Voir en plein écran
+            </a>
           </motion.div>
 
           <motion.div

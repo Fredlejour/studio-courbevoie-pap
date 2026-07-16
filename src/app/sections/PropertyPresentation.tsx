@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Camera } from "lucide-react";
 import { property } from "@/data/property";
 import { SectionTitle } from "@/app/components/SectionTitle";
+import { Gallery } from "@/app/components/Gallery";
 
 export function PropertyPresentation() {
   return (
@@ -21,20 +21,8 @@ export function PropertyPresentation() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-2 gap-4"
           >
-            {[1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                className="relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-2xl bg-cream"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-navy/5 to-navy/10" />
-                <Camera className="relative z-10 h-8 w-8 text-slate" />
-                <span className="relative z-10 mt-2 text-xs font-medium uppercase tracking-wider text-slate">
-                  Photo {i}
-                </span>
-              </div>
-            ))}
+            <Gallery images={property.assets.studio} />
           </motion.div>
 
           <motion.div
@@ -49,7 +37,7 @@ export function PropertyPresentation() {
 
             <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4">
               <div>
-                <dt className="text-sm text-slate">Surface</dt>
+                <dt className="text-sm text-slate">Surface Loi Carrez</dt>
                 <dd className="text-lg font-semibold text-navy">
                   {property.property.surface} m²
                 </dd>
@@ -61,30 +49,72 @@ export function PropertyPresentation() {
                 </dd>
               </div>
               <div>
+                <dt className="text-sm text-slate">Lot</dt>
+                <dd className="text-lg font-semibold text-navy">
+                  {property.property.lot}
+                </dd>
+              </div>
+              <div>
                 <dt className="text-sm text-slate">Étage</dt>
                 <dd className="text-lg font-semibold text-navy">
                   {property.property.floor}{property.property.elevator ? " avec ascenseur" : ""}
                 </dd>
               </div>
               <div>
-                <dt className="text-sm text-slate">Année de construction</dt>
+                <dt className="text-sm text-slate">Construction</dt>
                 <dd className="text-lg font-semibold text-navy">
                   {property.property.yearBuilt}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-sm text-slate">Chauffage</dt>
+                <dd className="text-lg font-semibold text-navy">
+                  {property.property.heating}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-sm text-slate">Fenêtre</dt>
+                <dd className="text-lg font-semibold text-navy">
+                  {property.property.window}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-sm text-slate">Gestion</dt>
+                <dd className="text-lg font-semibold text-navy">
+                  {property.investment.managementType}
                 </dd>
               </div>
             </dl>
 
             <div className="mt-8">
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-navy">
-                Équipements
+              <p className="text-slate-dark">
+                Le studio développe une surface Loi Carrez de {property.property.surface} m².
+                Son agencement comprend une entrée avec placard, une pièce principale intégrant
+                un espace nuit, un espace de travail et une kitchenette équipée, ainsi qu’une
+                salle d’eau avec WC. Situé au {property.property.floor}e étage, il est intégré
+                à une résidence étudiante proposant plusieurs espaces et services communs.
+              </p>
+
+              <h4 className="mt-6 text-sm font-semibold uppercase tracking-wider text-navy">
+                Répartition issue du métrage
               </h4>
               <ul className="mt-4 grid grid-cols-2 gap-3">
-                {property.property.equipment.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-slate-dark">
-                    <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                    {item}
-                  </li>
-                ))}
+                <li className="flex items-center gap-2 text-slate-dark">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                  Entrée et placard : 3,90 m²
+                </li>
+                <li className="flex items-center gap-2 text-slate-dark">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                  Pièce principale et cuisine : 11,00 m²
+                </li>
+                <li className="flex items-center gap-2 text-slate-dark">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                  Salle d’eau et WC : 3,02 m²
+                </li>
+                <li className="flex items-center gap-2 text-slate-dark">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                  Total : 17,92 m²
+                </li>
               </ul>
             </div>
           </motion.div>

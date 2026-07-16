@@ -7,9 +7,7 @@ import { SectionTitle } from "@/app/components/SectionTitle";
 import { formatCurrency, formatPercent } from "@/lib/utils";
 
 export function InvestmentSummary() {
-  const annualRent = property.investment.monthlyRent * 12;
-  const grossYieldDisplay = formatPercent(property.investment.grossYield);
-  const netYieldDisplay = formatPercent(property.investment.netYield);
+  const inv = property.investment;
 
   return (
     <section id="investissement" className="bg-cream py-24">
@@ -20,31 +18,58 @@ export function InvestmentSummary() {
           centered
         />
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-6 rounded-2xl border border-gold/20 bg-navy p-8 text-center shadow-sm"
+        >
+          <p className="text-sm font-medium uppercase tracking-widest text-cream/60">
+            Revenus locatifs annuels
+          </p>
+          <p className="mt-2 text-4xl font-semibold text-gold md:text-5xl">
+            {formatCurrency(inv.annualRent)} <span className="text-2xl text-cream/60">TTC / an</span>
+          </p>
+          <p className="mt-2 text-sm text-cream/70">
+            Soit {formatCurrency(inv.incomeAfterTax)} / an après taxe foncière
+          </p>
+        </motion.div>
+
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <MetricCard
-            label="Prix d'acquisition"
-            value={formatCurrency(property.investment.price)}
+            label="Prix honoraires inclus"
+            value={formatCurrency(inv.price)}
+          />
+          <MetricCard
+            label="Prix net vendeur"
+            value={formatCurrency(inv.netPrice)}
+          />
+          <MetricCard
+            label="Honoraires acquéreur"
+            value={`${formatCurrency(inv.buyerFees)} TTC`}
+          />
+          <MetricCard
+            label="Loyer trimestriel"
+            value={`${formatCurrency(inv.quarterlyRent)} TTC`}
+          />
+          <MetricCard
+            label="Taxe foncière"
+            value={`${formatCurrency(inv.propertyTax)} / an`}
+          />
+          <MetricCard
+            label="Revenu après taxe foncière"
+            value={`${formatCurrency(inv.incomeAfterTax)} / an`}
             accent
           />
           <MetricCard
-            label="Loyer mensuel estimé"
-            value={formatCurrency(property.investment.monthlyRent)}
-          />
-          <MetricCard
             label="Rendement brut"
-            value={grossYieldDisplay}
+            value={formatPercent(inv.grossYield)}
           />
           <MetricCard
-            label="Rendement net estimé"
-            value={netYieldDisplay}
-          />
-          <MetricCard
-            label="Charges mensuelles"
-            value={formatCurrency(property.investment.charges)}
-          />
-          <MetricCard
-            label="Régime fiscal"
-            value={property.investment.taxRegime}
+            label="Rendement après taxe foncière"
+            value={formatPercent(inv.yieldAfterTax)}
+            accent
           />
         </div>
 
@@ -53,29 +78,11 @@ export function InvestmentSummary() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="mt-10 rounded-2xl border border-gold/10 bg-white p-6 shadow-sm md:p-8"
+          className="mt-10 rounded-2xl border border-gold/10 bg-white p-6 text-center text-sm text-slate shadow-sm md:p-8"
         >
-          <h3 className="text-lg font-semibold text-navy">Synthèse en un coup d’œil</h3>
-          <div className="mt-6 grid gap-8 sm:grid-cols-3">
-            <div>
-              <p className="text-sm text-slate">Type de bien</p>
-              <p className="mt-1 text-xl font-semibold text-navy">
-                {property.property.type}
-              </p>
-            </div>
-            <div>
-              <p className="text-sm text-slate">Surface</p>
-              <p className="mt-1 text-xl font-semibold text-navy">
-                {property.property.surface} m²
-              </p>
-            </div>
-            <div>
-              <p className="text-sm text-slate">Loyer annuel estimé</p>
-              <p className="mt-1 text-xl font-semibold text-gold">
-                {formatCurrency(annualRent)}
-              </p>
-            </div>
-          </div>
+          Les rendements sont calculés sur le prix de vente honoraires inclus de{" "}
+          {formatCurrency(inv.price)}, hors frais de notaire, financement et fiscalité personnelle.
+          La taxe foncière de {formatCurrency(inv.propertyTax)} est confirmée par l’avis fiscal.
         </motion.div>
       </div>
     </section>
