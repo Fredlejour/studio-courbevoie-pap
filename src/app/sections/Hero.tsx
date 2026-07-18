@@ -47,7 +47,7 @@ export function Hero() {
             <p className="text-sm font-semibold uppercase tracking-widest text-gold">
               Investissement immobilier rentable
             </p>
-            <h1 className="mt-4 text-4xl font-semibold leading-tight text-cream md:text-5xl lg:text-6xl">
+            <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-cream md:text-5xl md:leading-[1.1] lg:text-5xl xl:font-extrabold">
               Investissez à Courbevoie et percevez immédiatement des revenus locatifs.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/80">
