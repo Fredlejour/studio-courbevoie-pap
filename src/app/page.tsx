@@ -10,7 +10,6 @@ import { VirtualTour } from "@/app/sections/VirtualTour";
 import { PlanSection } from "@/app/sections/PlanSection";
 import { Location } from "@/app/sections/Location";
 import { FinancialPlan } from "@/app/sections/FinancialPlan";
-import { Documents } from "@/app/sections/Documents";
 import { FAQ } from "@/app/sections/FAQ";
 import { WhySelected } from "@/app/sections/WhySelected";
 import { ProfileSection } from "@/app/sections/ProfileSection";
@@ -31,7 +30,6 @@ export default function Home() {
         <PlanSection />
         <Location />
         <FinancialPlan />
-        <Documents />
         <FAQ />
         <WhySelected />
         <ProfileSection />
