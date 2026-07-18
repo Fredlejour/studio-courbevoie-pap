@@ -17,7 +17,7 @@ export function PlanSection() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="Plan du studio"
-            subtitle="Organisation optimisée d'un studio de 18,5 m² : entrée, pièce de vie avec kitchenette, salle d'eau et WC."
+            subtitle="Organisation optimisée d'un studio de 17,92 m² (18 m²) : entrée, pièce de vie avec kitchenette, salle d'eau et WC."
             centered
           />
 
@@ -55,31 +55,36 @@ export function PlanSection() {
               className="flex flex-col justify-center rounded-2xl border border-gold/10 bg-cream p-8"
             >
               <h3 className="text-2xl font-semibold text-navy">
-                {property.property.surface} m² pensés pour la location
+                {property.property.surfaceDisplay} pensés pour la location
               </h3>
               <p className="mt-4 text-slate-dark">
-                Le plan propose une distribution fonctionnelle : une entrée avec rangements,
-                une pièce de vie lumineuse avec kitchenette équipée, et une salle d&rsquo;eau avec WC.
-                Chaque mètre carré est optimisé pour attirer les étudiants et jeunes actifs.
+                Le plan propose une distribution fonctionnelle et optimisée : chaque espace est
+                pensé pour maximiser le confort d&rsquo;usage dans un studio étudiant meublé.
               </p>
-              <ul className="mt-6 space-y-3 text-slate">
-                <li className="flex items-center gap-3">
-                  <span className="h-2 w-2 rounded-full bg-gold" />
-                  Entrée avec placards
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="h-2 w-2 rounded-full bg-gold" />
-                  Pièce de vie + kitchenette
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="h-2 w-2 rounded-full bg-gold" />
-                  Salle d&rsquo;eau avec WC
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="h-2 w-2 rounded-full bg-gold" />
-                  Fenêtre exposée pour la luminosité
-                </li>
-              </ul>
+
+              <div className="mt-6 space-y-3">
+                {[
+                  { label: "Entrée + placard", area: "3,90 m²" },
+                  { label: "Séjour / Chambre + Kitchenette", area: "11,00 m²" },
+                  { label: "Salle d&rsquo;eau + WC", area: "3,02 m²" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-center justify-between rounded-xl border border-gold/10 bg-white p-4"
+                  >
+                    <span className="flex items-center gap-3 text-slate-dark">
+                      <span className="h-2 w-2 rounded-full bg-gold" />
+                      {item.label}
+                    </span>
+                    <span className="font-semibold text-navy">{item.area}</span>
+                  </div>
+                ))}
+
+                <div className="flex items-center justify-between rounded-xl bg-navy p-4">
+                  <span className="font-semibold text-cream">Total</span>
+                  <span className="font-semibold text-gold">{property.property.surfaceDisplay}</span>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>

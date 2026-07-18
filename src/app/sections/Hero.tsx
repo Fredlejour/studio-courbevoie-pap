@@ -11,16 +11,6 @@ export function Hero() {
   const highlights = [
     {
       icon: "TrendingUp" as const,
-      label: "Revenus annuels",
-      value: `${formatCurrency(property.investment.annualRent)} TTC`,
-    },
-    {
-      icon: "Euro" as const,
-      label: "Prix FAI",
-      value: `${formatCurrency(property.investment.price)}`,
-    },
-    {
-      icon: "TrendingUp" as const,
       label: "Rendement après taxe foncière",
       value: formatPercent(property.investment.yieldAfterTax),
     },
@@ -48,21 +38,24 @@ export function Hero() {
               Investissement immobilier rentable
             </p>
             <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-cream md:text-5xl md:leading-[1.1] lg:text-5xl xl:font-extrabold">
-              Investissez à Courbevoie et percevez immédiatement des revenus locatifs.
+              Investissez à Courbevoie
+              <br />
+              et percevez immédiatement
+              <br />
+              vos revenus locatifs.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/80">
-              Vous recherchez un investissement immobilier simple à gérer, déjà exploité et
-              générant des revenus dès votre acquisition ?
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-cream/80">
+              Vous recherchez un investissement déjà exploité, générant des revenus dès votre
+              acquisition et ne nécessitant aucune gestion locative ?
             </p>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-cream/70">
-              Ce studio meublé de {property.property.surface} m² situé dans la résidence
-              étudiante <strong className="text-gold">{property.property.residence}</strong>{" "}
-              répond précisément à ces attentes grâce à son bail commercial, sa gestion
-              entièrement déléguée et son rendement indicatif de{" "}
-              {formatPercent(property.investment.yieldAfterTax)} après taxe foncière.
+              Ce studio meublé de 17,92 m² (18 m²) situé dans la résidence étudiante{" "}
+              <strong className="text-gold">Studéa Léonard de Vinci</strong> répond précisément à
+              ces attentes grâce à son bail commercial, sa gestion entièrement déléguée et son
+              rendement indicatif de 5,18 % après taxe foncière.
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-2.5">
+            <div className="mt-6 flex flex-wrap gap-2.5 lg:flex-nowrap">
               {[
                 "Revenus dès l'acquisition",
                 "Bail commercial en cours",
@@ -110,7 +103,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-            className="relative hidden lg:block"
+            className="relative hidden lg:block lg:-mt-12"
           >
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-gold/10 bg-gradient-to-br from-navy-light to-navy shadow-2xl">
               <Image

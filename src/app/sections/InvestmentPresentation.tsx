@@ -22,16 +22,12 @@ export function InvestmentPresentation() {
           className="mt-12 space-y-6 rounded-2xl border border-gold/10 bg-cream p-8 shadow-sm md:p-10"
         >
           <p className="text-lg leading-relaxed text-slate-dark">
-            Ce studio est exploité dans le cadre d&rsquo;un bail commercial au sein de la
-            résidence étudiante Studéa Léonard de Vinci.
+            Le bail commercial garantit le versement du loyer par l&rsquo;exploitant, qu&rsquo;un
+            étudiant occupe ou non le studio, conformément aux conditions prévues au bail.
           </p>
           <p className="text-slate-dark">
-            L&rsquo;investisseur acquiert un bien déjà exploité, générant des revenus locatifs et
-            dont la gestion quotidienne est déléguée au gestionnaire de la résidence.
-          </p>
-          <p className="text-slate-dark">
-            Cette organisation limite les contraintes habituelles de la location directe :
-            recherche d&rsquo;un occupant, gestion courante et suivi quotidien du logement.
+            Vous ne gérez ni la recherche de locataire, ni les entrées et sorties, ni les impayés,
+            ni la gestion locative quotidienne.
           </p>
 
           <div className="flex items-start gap-3 rounded-xl border border-gold/10 bg-white p-4 text-sm text-slate">

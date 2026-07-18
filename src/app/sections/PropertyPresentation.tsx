@@ -39,7 +39,7 @@ export function PropertyPresentation() {
               <div>
                 <dt className="text-sm text-slate">Surface Loi Carrez</dt>
                 <dd className="text-lg font-semibold text-navy">
-                  {property.property.surface} m²
+                  {property.property.surfaceDisplay}
                 </dd>
               </div>
               <div>
@@ -84,11 +84,19 @@ export function PropertyPresentation() {
                   {property.investment.managementType}
                 </dd>
               </div>
+              <div>
+                <dt className="text-sm text-slate">Gestionnaire / exploitant</dt>
+                <dd className="text-lg font-semibold text-navy">Nexity Studéa</dd>
+              </div>
+              <div>
+                <dt className="text-sm text-slate">DPE</dt>
+                <dd className="text-lg font-semibold text-navy">C</dd>
+              </div>
             </dl>
 
             <div className="mt-8">
               <p className="text-slate-dark">
-                Le studio développe une surface Loi Carrez de {property.property.surface} m².
+                Le studio développe une surface Loi Carrez de {property.property.surfaceDisplay}.
                 Son agencement comprend une entrée avec placard, une pièce principale intégrant
                 un espace nuit, un espace de travail et une kitchenette équipée, ainsi qu’une
                 salle d’eau avec WC. Situé au {property.property.floor}e étage, il est intégré
@@ -101,19 +109,19 @@ export function PropertyPresentation() {
               <ul className="mt-4 grid grid-cols-2 gap-3">
                 <li className="flex items-center gap-2 text-slate-dark">
                   <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                  Entrée et placard : 3,90 m²
+                  Entrée + placard : 3,90 m²
                 </li>
                 <li className="flex items-center gap-2 text-slate-dark">
                   <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                  Pièce principale et cuisine : 11,00 m²
+                  Séjour / Chambre + Kitchenette : 11,00 m²
                 </li>
                 <li className="flex items-center gap-2 text-slate-dark">
                   <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                  Salle d’eau et WC : 3,02 m²
+                  Salle d’eau + WC : 3,02 m²
                 </li>
                 <li className="flex items-center gap-2 text-slate-dark">
                   <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                  Total : 17,92 m²
+                  Total : 17,92 m² (18 m²)
                 </li>
               </ul>
             </div>

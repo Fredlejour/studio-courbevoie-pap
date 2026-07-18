@@ -43,6 +43,7 @@ export interface PropertyData {
     type: string;
     lot: string;
     surface: number;
+    surfaceDisplay: string;
     floor: number;
     elevator: boolean;
     rooms: number;
@@ -108,7 +109,7 @@ export const property: PropertyData = {
 
   title: "Investissement locatif à Courbevoie – Studio Studéa Léonard de Vinci",
   description:
-    "Studio meublé de 17,92 m² à Courbevoie, exploité sous bail commercial avec gestion déléguée et rendement indicatif de 5,18 % après taxe foncière.",
+    "Studio meublé de 17,92 m² (18 m²) à Courbevoie, exploité sous bail commercial avec gestion déléguée et rendement indicatif de 5,18 % après taxe foncière.",
   canonicalUrl: "https://lejourconsultting-courbevoie-invest.vercel.app",
   ogImage: "/opengraph-image.jpg",
 
@@ -121,6 +122,7 @@ export const property: PropertyData = {
     type: "studio meublé en résidence étudiante",
     lot: "n°116",
     surface: 17.92,
+    surfaceDisplay: "17,92 m² (18 m²)",
     floor: 5,
     elevator: true,
     rooms: 1,
@@ -153,7 +155,7 @@ export const property: PropertyData = {
   },
 
   highlights: [
-    { icon: "Home", label: "Surface Carrez", value: "17,92 m²" },
+    { icon: "Home", label: "Surface Carrez", value: "17,92 m² (18 m²)" },
     { icon: "MapPin", label: "Adresse", value: "4 allée Botticelli, Courbevoie" },
     { icon: "TrendingUp", label: "Rendement après taxe foncière", value: "5,18 %" },
     { icon: "Key", label: "Gestion", value: "Bail commercial" },
@@ -290,7 +292,12 @@ export const property: PropertyData = {
     {
       question: "Pourquoi investir sous bail commercial ?",
       answer:
-        "Le bail commercial confie l'exploitation du studio au gestionnaire de la résidence Studéa Léonard de Vinci. Cette organisation permet de percevoir des revenus sans gérer la recherche d'occupant, l'entretien courant ou le suivi administratif, sous les conditions prévues par le bail en cours.",
+        "Le bail commercial garantit le versement du loyer par l'exploitant, qu'un étudiant occupe ou non le studio, conformément aux conditions prévues au bail. Vous ne gérez ni la recherche de locataire, ni les entrées et sorties, ni les impayés, ni la gestion locative quotidienne.",
+    },
+    {
+      question: "Qui exploite actuellement la résidence ?",
+      answer:
+        "La résidence est actuellement exploitée sous l’enseigne Studéa, avec un suivi propriétaire assuré par Nexity Studéa. Le bail commercial d’origine a été conclu avec Icade Eurostudiomes. Les documents contractuels correspondants sont consultables dans le dossier d’investissement.",
     },
     {
       question: "Pourquoi investir à Courbevoie ?",
@@ -310,7 +317,7 @@ export const property: PropertyData = {
     {
       question: "Comment se déroule la gestion locative ?",
       answer:
-        "Le studio est géré via un bail commercial. Cette organisation limite la gestion quotidienne : recherche d'occupant, entretien courant et suivi sont délégués au gestionnaire de la résidence, sous les conditions du bail.",
+        "Le bail commercial garantit le versement du loyer par l'exploitant, qu'un étudiant occupe ou non le studio, conformément aux conditions prévues au bail. Vous ne gérez ni la recherche de locataire, ni les entrées et sorties, ni les impayés, ni la gestion locative quotidienne.",
     },
     {
       question: "Puis-je financer ce bien par emprunt ?",

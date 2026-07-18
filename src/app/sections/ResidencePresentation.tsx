@@ -48,6 +48,11 @@ export function ResidencePresentation() {
               cafétéria, salle de fitness, laverie et ascenseur.
             </p>
 
+            <p className="mt-4 rounded-xl border border-gold/10 bg-white p-4 text-sm text-slate-dark">
+              Résidence exploitée par{" "}
+              <strong className="text-navy">Nexity Studéa – Pôle Propriétaire</strong>.
+            </p>
+
             <ul className="mt-4 grid gap-4 sm:grid-cols-2">
               {residenceFeatures.map((item) => {
                 const Icon = item.icon;
