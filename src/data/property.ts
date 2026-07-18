@@ -106,12 +106,11 @@ export const property: PropertyData = {
   siteName: "Lejour Consulting Invest",
   reference: "LJC-CVB-001",
 
-  title:
-    "Investissement locatif clé en main à Courbevoie | Studio Studéa Léonard de Vinci",
+  title: "Investissement locatif à Courbevoie – Studio Studéa Léonard de Vinci",
   description:
-    "Studio meublé de 17,92 m² dans la résidence étudiante Studéa Léonard de Vinci à Courbevoie, exploité sous bail commercial. Données financières et fiscales communiquées à titre indicatif.",
-  canonicalUrl: "https://lejourconsulting-courbevoie-invest.vercel.app",
-  ogImage: "/assets/images/og-image.svg",
+    "Studio meublé de 17,92 m² à Courbevoie, exploité sous bail commercial avec gestion déléguée et rendement indicatif de 5,18 % après taxe foncière.",
+  canonicalUrl: "https://lejourconsultting-courbevoie-invest.vercel.app",
+  ogImage: "/opengraph-image.jpg",
 
   property: {
     name: "Studio Studéa Léonard de Vinci",
@@ -188,7 +187,7 @@ export const property: PropertyData = {
   },
 
   assets: {
-    ogImage: "/assets/images/og-image.svg",
+    ogImage: "/opengraph-image.jpg",
     studio: [
       {
         src: "/assets/images/studio/7-Appartement 94200 courbevoie - entrée couloir.jpg",
