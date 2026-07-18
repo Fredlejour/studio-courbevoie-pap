@@ -20,50 +20,160 @@ export const legalModals: LegalModalConfig[] = [
     footerLabel: "Mentions légales",
     title: "Mentions légales",
     content: (
-      <div className="space-y-4">
-        <p>Le présent site est édité par :</p>
-        <p>
-          Lejour Consulting
-          <br />
-          Frédéric Lejour
-          <br />
-          Kirchstrasse 37
-          <br />
-          55218 Ingelheim am Rhein
-          <br />
-          Allemagne
-        </p>
-        <p>
-          <strong className="text-navy">Téléphone :</strong> +33 6 52 64 68 90
-        </p>
-        <p>
-          <strong className="text-navy">Email :</strong> frederic.lejour@lejourconsulting.com
-        </p>
-        <p>
-          <strong className="text-navy">Site internet :</strong>{" "}
-          <a
-            href="https://lejourconsulting.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gold underline-offset-2 hover:underline"
-          >
-            https://lejourconsulting.com
-          </a>
-        </p>
-        <p>
-          <strong className="text-navy">Directeur de la publication :</strong> Frédéric Lejour
-        </p>
-        <p>
-          <strong className="text-navy">Hébergement :</strong>
-          <br />
-          Le site est hébergé par Vercel Inc.
-          <br />
-          3979 Freedom Circle, Suite 300
-          <br />
-          Santa Clara, California
-          <br />
-          États-Unis
-        </p>
+      <div className="space-y-6">
+        <section>
+          <h3 className="mb-2 text-base font-semibold text-navy">Éditeur du site</h3>
+          <div className="space-y-1">
+            <p>Frédéric Lejour</p>
+            <p>Lejour Consulting</p>
+            <p>Kirchstrasse 37</p>
+            <p>55218 Ingelheim am Rhein</p>
+            <p>Allemagne</p>
+          </div>
+          <div className="mt-3 space-y-1">
+            <p>
+              <strong className="text-navy">Téléphone France :</strong>{" "}
+              <a href="tel:+33652646890" className="text-gold underline-offset-2 hover:underline">
+                +33 6 52 64 68 90
+              </a>
+            </p>
+            <p>
+              <strong className="text-navy">Téléphone Allemagne :</strong>{" "}
+              <a href="tel:+4917646073361" className="text-gold underline-offset-2 hover:underline">
+                +49 176 46073361
+              </a>
+            </p>
+            <p>
+              <strong className="text-navy">Courriel :</strong>{" "}
+              <a
+                href="mailto:frederic.lejour@lejourconsulting.com"
+                className="text-gold underline-offset-2 hover:underline"
+              >
+                frederic.lejour@lejourconsulting.com
+              </a>
+            </p>
+            <p>
+              <strong className="text-navy">Site internet :</strong>{" "}
+              <a
+                href="https://lejourconsulting.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold underline-offset-2 hover:underline"
+              >
+                https://lejourconsulting.com
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h3 className="mb-2 text-base font-semibold text-navy">Identification professionnelle</h3>
+          <div className="space-y-1">
+            <p>
+              <strong className="text-navy">Steuernummer (Allemagne) :</strong> 08/103/51926
+            </p>
+            <p>
+              <strong className="text-navy">Numéro de TVA intracommunautaire (VAT) :</strong> DE287643129
+            </p>
+            <p>
+              <strong className="text-navy">IHK Rheinhessen :</strong> n° 152 00 686043
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h3 className="mb-2 text-base font-semibold text-navy">Autorisations d'exercice</h3>
+          <div className="space-y-4">
+            <div className="space-y-1">
+              <p className="font-medium text-navy">Libre prestation de services immobiliers en France</p>
+              <p>Titulaire du récépissé de libre prestation de services immobiliers en France</p>
+              <p>
+                <strong className="text-navy">N°</strong> LPS75012025000000015
+              </p>
+              <p>
+                <strong className="text-navy">Délivré par :</strong> CCI Paris Île-de-France
+              </p>
+              <p>
+                <strong className="text-navy">Valable jusqu'au :</strong> 22 septembre 2026
+              </p>
+              <p>Conformément à la loi n°70-9 du 2 janvier 1970 (Loi Hoguet).</p>
+            </div>
+            <div className="space-y-1">
+              <p className="font-medium text-navy">Carte Professionnelle Européenne</p>
+              <p>Titulaire de la Carte Professionnelle Européenne (EPC)</p>
+              <p>
+                <strong className="text-navy">Profession :</strong> Agent immobilier
+              </p>
+              <p>
+                <strong className="text-navy">N°</strong> 05-7511-z2T4
+              </p>
+              <p>
+                <strong className="text-navy">Attribuée le :</strong> 14 juillet 2021
+              </p>
+              <p>
+                <strong className="text-navy">Valable jusqu'au :</strong> 12 janvier 2026
+              </p>
+              <p>Conformément au décret n°2017-1481 du 17 octobre 2017.</p>
+            </div>
+            <div className="space-y-1">
+              <p className="font-medium text-navy">Autorisation d'exercer en Allemagne</p>
+              <p>
+                Titulaire d'une autorisation d'exercer l'activité d'agent immobilier (Erlaubnis
+                Immobilienmakler)
+              </p>
+              <p>
+                <strong className="text-navy">Délivrée le :</strong> 10 mars 2021
+              </p>
+              <p>
+                <strong className="text-navy">Par :</strong> Stadtverwaltung Ingelheim am Rhein, Allemagne
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3 className="mb-2 text-base font-semibold text-navy">Assurance professionnelle</h3>
+          <p>
+            Lejour Consulting est assuré auprès d'AXA au titre de la responsabilité civile
+            professionnelle couvrant les activités de transaction immobilière.
+          </p>
+        </section>
+
+        <section>
+          <h3 className="mb-2 text-base font-semibold text-navy">Hébergement du site</h3>
+          <p>Le site est hébergé par :</p>
+          <div className="mt-1 space-y-1">
+            <p>Vercel Inc.</p>
+            <p>3979 Freedom Circle</p>
+            <p>Suite 300</p>
+            <p>Santa Clara</p>
+            <p>California</p>
+            <p>États-Unis</p>
+            <p>
+              <a
+                href="https://vercel.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold underline-offset-2 hover:underline"
+              >
+                https://vercel.com
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h3 className="mb-2 text-base font-semibold text-navy">Propriété intellectuelle</h3>
+          <p>
+            L'ensemble des contenus présents sur ce site (textes, photographies, illustrations,
+            documents, éléments graphiques, identité visuelle et code source) est protégé par les
+            dispositions du Code de la propriété intellectuelle.
+          </p>
+          <p>
+            Toute reproduction, représentation, diffusion ou exploitation, totale ou partielle, sans
+            autorisation écrite préalable de Lejour Consulting est interdite.
+          </p>
+        </section>
       </div>
     ),
   },
