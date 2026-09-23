@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, FileDown, CalendarClock } from "lucide-react";
+import { Mail, Users, MapPin, FileDown, CalendarClock } from "lucide-react";
 import { property, type FormRequestType } from "@/data/property";
 import { SectionTitle } from "@/app/components/SectionTitle";
 import { ContactForm } from "@/app/components/ContactForm";
@@ -41,8 +41,8 @@ export function ContactSection() {
     <section id="contact" className={cn("bg-cream py-24")}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Intéressé par ce dossier ?"
-          subtitle={`Recevez le dossier complet ou organisez un échange personnalisé avec ${property.assets.presenter.name}.`}
+          title="Intéressé par ce studio ?"
+          subtitle="Recevez le dossier complet ou organisez un échange directement avec les propriétaires."
           centered
         />
 
@@ -53,15 +53,27 @@ export function ContactSection() {
           transition={{ duration: 0.5 }}
           className="mt-12 grid gap-4 sm:grid-cols-3"
         >
-          <ContactBox icon={<Mail className="h-5 w-5" />} title="Email">
-            <a href={`mailto:${email}`} className="font-semibold hover:text-gold">
-              {email}
-            </a>
+          <ContactBox icon={<Users className="h-5 w-5" />} title="Vos interlocuteurs">
+            <p className="font-semibold">{property.assets.presenter.name}</p>
+            <p className="text-sm text-slate">Propriétaires du studio</p>
           </ContactBox>
-          <ContactBox icon={<Phone className="h-5 w-5" />} title="Téléphone">
-            <a href={`tel:${phone.replace(/\s/g, "")}`} className="font-semibold hover:text-gold">
-              {phone}
-            </a>
+          <ContactBox icon={<Mail className="h-5 w-5" />} title="Contact">
+            {email ? (
+              <a href={`mailto:${email}`} className="font-semibold hover:text-gold">
+                {email}
+              </a>
+            ) : (
+              <p className="font-semibold">Via le formulaire ci-dessous</p>
+            )}
+            {phone && (
+              <a
+                href={`tel:${phone.replace(/\s/g, "")}`}
+                className="block font-semibold hover:text-gold"
+              >
+                {phone}
+              </a>
+            )}
+            <p className="text-sm text-slate">Réponse directe des propriétaires</p>
           </ContactBox>
           <ContactBox icon={<MapPin className="h-5 w-5" />} title="Adresse du bien">
             <p className="font-semibold">{property.property.address}</p>
@@ -75,10 +87,10 @@ export function ContactSection() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mt-4 rounded-2xl border border-gold/10 bg-navy p-6 text-center text-cream"
         >
-          <p className="text-gold font-semibold">{property.brand}</p>
+          <p className="text-gold font-semibold">Vente directe avec les propriétaires</p>
           <p className="mx-auto mt-2 max-w-2xl text-sm text-cream/80">
-            Conseil en investissement immobilier sélectionné. Accompagnement personnalisé
-            et dossiers clés en main pour investisseurs privés et expatriés.
+            Sur ce site, vous échangez directement avec Anthony et Eve Piorowicz,
+            propriétaires du studio.
           </p>
           <p className="mt-3 text-xs text-cream/50">Réf. {property.reference}</p>
         </motion.div>

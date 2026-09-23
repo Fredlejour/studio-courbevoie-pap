@@ -38,11 +38,11 @@ export function Hero() {
               Investissement immobilier rentable
             </p>
             <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-cream md:text-5xl md:leading-[1.1] lg:text-5xl xl:font-extrabold">
-              Investissez à Courbevoie
+              Un studio à Courbevoie
               <br />
-              et percevez immédiatement
+              qui génère déjà
               <br />
-              vos revenus locatifs.
+              ses revenus locatifs.
             </h1>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-cream/80">
               Vous recherchez un investissement déjà exploité, générant des revenus dès votre

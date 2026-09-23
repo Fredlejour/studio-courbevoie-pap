@@ -79,11 +79,11 @@ export function DPESection() {
               </div>
               <p className="text-slate-dark leading-relaxed">
                 Le classement énergétique C constitue un bon niveau de performance pour ce type
-                d&rsquo;investissement et participe à la valorisation du bien.
+                d’investissement et participe à la valorisation du bien.
               </p>
               <p className="text-slate-dark leading-relaxed">
-                Les performances énergétiques constituent aujourd&rsquo;hui un critère important
-                dans la valorisation d&rsquo;un patrimoine immobilier.
+                Les performances énergétiques constituent aujourd’hui un critère important
+                dans la valorisation d’un patrimoine immobilier.
               </p>
             </div>
           </div>

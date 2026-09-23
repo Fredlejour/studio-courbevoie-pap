@@ -42,7 +42,7 @@ export function IdealForYou() {
     <section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Cet investissement est fait pour vous si..."
+          title="Ce studio peut vous correspondre si..."
           centered
         />
 

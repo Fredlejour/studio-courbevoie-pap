@@ -38,16 +38,9 @@ export function InvestmentSummary() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <MetricCard
-            label="Prix honoraires inclus"
+            label="Prix de vente"
             value={formatCurrency(inv.price)}
-          />
-          <MetricCard
-            label="Prix net vendeur"
-            value={formatCurrency(inv.netPrice)}
-          />
-          <MetricCard
-            label="Honoraires acquéreur"
-            value={`${formatCurrency(inv.buyerFees)} TTC`}
+            accent
           />
           <MetricCard
             label="Loyer trimestriel"
@@ -80,7 +73,7 @@ export function InvestmentSummary() {
           transition={{ duration: 0.5 }}
           className="mt-10 rounded-2xl border border-gold/10 bg-white p-6 text-center text-sm text-slate shadow-sm md:p-8"
         >
-          Les rendements sont calculés sur le prix de vente honoraires inclus de{" "}
+          Les rendements sont calculés sur le prix de vente de{" "}
           {formatCurrency(inv.price)}, hors frais de notaire, financement et fiscalité personnelle.
           La taxe foncière de {formatCurrency(inv.propertyTax)} est confirmée par l’avis fiscal.
         </motion.div>

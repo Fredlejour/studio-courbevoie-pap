@@ -59,14 +59,14 @@ export function PlanSection() {
               </h3>
               <p className="mt-4 text-slate-dark">
                 Le plan propose une distribution fonctionnelle et optimisée : chaque espace est
-                pensé pour maximiser le confort d&rsquo;usage dans un studio étudiant meublé.
+                pensé pour maximiser le confort d’usage dans un studio étudiant meublé.
               </p>
 
               <div className="mt-6 space-y-3">
                 {[
                   { label: "Entrée + placard", area: "3,90 m²" },
                   { label: "Séjour / Chambre + Kitchenette", area: "11,00 m²" },
-                  { label: "Salle d&rsquo;eau + WC", area: "3,02 m²" },
+                  { label: "Salle d’eau + WC", area: "3,02 m²" },
                 ].map((item) => (
                   <div
                     key={item.label}

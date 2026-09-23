@@ -42,8 +42,8 @@ export function InvestmentAppealSection() {
     <section className="bg-cream py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Pourquoi ce studio est un investissement recherché"
-          subtitle="Six atouts essentiels pour comprendre rapidement la qualité de cette opportunité."
+          title="Les principaux atouts de ce studio"
+          subtitle="Six caractéristiques pour comprendre rapidement le positionnement de ce bien."
           centered
         />
 

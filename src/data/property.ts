@@ -55,8 +55,6 @@ export interface PropertyData {
   investment: {
     price: number;
     priceUnit: string;
-    buyerFees: number;
-    netPrice: number;
     quarterlyRent: number;
     annualRent: number;
     propertyTax: number;
@@ -87,9 +85,9 @@ export interface PropertyData {
       name: string;
       role: string;
       bio: string[];
-      phone: string;
-      email: string;
-      website: string;
+      phone?: string;
+      email?: string;
+      website?: string;
       cta: string;
     };
     documents: DocumentAsset[];
@@ -103,14 +101,14 @@ export interface PropertyData {
 // FICHIER CENTRAL DE CONFIGURATION
 // Pour publier un futur bien, remplacer simplement les valeurs ci-dessous.
 export const property: PropertyData = {
-  brand: "Lejour Consulting",
-  siteName: "Lejour Consulting Invest",
-  reference: "LJC-CVB-001",
+  brand: "Studio Courbevoie",
+  siteName: "Studio Courbevoie",
+  reference: "PAP-CVB-001",
 
-  title: "Investissement locatif à Courbevoie – Studio Studéa Léonard de Vinci",
+  title: "Studio investissement Courbevoie – Vente directe propriétaire",
   description:
-    "Studio meublé de 17,92 m² (18 m²) à Courbevoie, exploité sous bail commercial avec gestion déléguée et rendement indicatif de 5,18 % après taxe foncière.",
-  canonicalUrl: "https://lejourconsultting-courbevoie-invest.vercel.app",
+    "Studio meublé de 17,92 m² (18 m²) à Courbevoie, vendu directement par ses propriétaires. Exploité sous bail commercial avec gestion déléguée et rendement indicatif de 5,18 % après taxe foncière.",
+  canonicalUrl: "https://studio-courbevoie-invest-pap.vercel.app",
   ogImage: "/opengraph-image.jpg",
 
   property: {
@@ -141,8 +139,6 @@ export const property: PropertyData = {
   investment: {
     price: 117000,
     priceUnit: "€",
-    buyerFees: 5000,
-    netPrice: 112000,
     quarterlyRent: 1627.62,
     annualRent: 6510.48,
     propertyTax: 450,
@@ -175,7 +171,7 @@ export const property: PropertyData = {
   ],
 
   contact: {
-    recipientName: "Frédéric Lejour",
+    recipientName: "Anthony et Eve Piorowicz",
     forms: {
       dossier: {
         label: "Recevoir le dossier complet",
@@ -258,21 +254,15 @@ export const property: PropertyData = {
       label: "Lancer la visite virtuelle",
     },
     presenter: {
-      photo: "/assets/images/profile/Profil Frederic lejour lejour consulting.jpg",
-      name: "Frédéric Lejour",
-      role: "Fondateur de Lejour Consulting",
+      photo: "/assets/images/profile/Anthony et Eve Piorowicz.png",
+      name: "Anthony & Eve Piorowicz",
+      role: "Propriétaires du studio",
       bio: [
-        "Je sélectionne des opportunités immobilières répondant à trois critères essentiels :",
-        "• un emplacement recherché,",
-        "• une rentabilité attractive,",
-        "• un véritable potentiel de valorisation à long terme.",
-        "Chaque investissement fait l'objet d'une analyse approfondie afin de proposer un dossier documenté, transparent et cohérent avec une stratégie patrimoniale durable.",
-        "Pour cette opportunité à Courbevoie, je reste votre interlocuteur privilégié pour répondre à vos questions et vous accompagner jusqu'à la signature.",
+        "Nous sommes les propriétaires de ce studio situé dans la résidence Studéa Léonard de Vinci à Courbevoie.",
+        "Nous le vendons directement : vous échangez avec nous de la première question jusqu'à la visite, puis lors de la signature chez le notaire.",
+        "Nous mettons à votre disposition un dossier documenté et transparent afin de vous permettre d'étudier cette opportunité en toute sérénité.",
       ],
-      phone: "+33 6 52 64 68 90",
-      email: "frederic.lejour@lejourconsulting.com",
-      website: "https://lejourconsulting.com",
-      cta: "Organiser un échange",
+      cta: "Échanger avec les propriétaires",
     },
     documents: [
       {

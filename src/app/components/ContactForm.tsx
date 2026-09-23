@@ -6,14 +6,6 @@ import { property, type FormRequestType } from "@/data/property";
 import { cn } from "@/lib/utils";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 
-const profiles = [
-  "Particulier primo-investisseur",
-  "Investisseur expérimenté",
-  "Expatrié / Non-résident",
-  "Professionnel / Entreprise",
-  "Autre",
-];
-
 interface ContactFormProps {
   requestType: FormRequestType;
 }
@@ -25,8 +17,6 @@ export function ContactForm({ requestType }: ContactFormProps) {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [profile, setProfile] = useState("");
-  const [amount, setAmount] = useState("");
   const [messageText, setMessageText] = useState("");
   const [consent, setConsent] = useState(false);
 
@@ -142,42 +132,6 @@ export function ContactForm({ requestType }: ContactFormProps) {
         </div>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
-        <div>
-          <label htmlFor="profile" className="mb-2 block text-sm font-medium text-navy">
-            Profil investisseur
-          </label>
-          <select
-            id="profile"
-            name="profile"
-            value={profile}
-            onChange={(e) => setProfile(e.target.value)}
-            className="w-full rounded-xl border border-gold/20 bg-cream px-4 py-3 text-navy outline-none transition focus:border-gold focus:ring-1 focus:ring-gold"
-          >
-            <option value="">Sélectionnez...</option>
-            {profiles.map((p) => (
-              <option key={p} value={p}>
-                {p}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="amount" className="mb-2 block text-sm font-medium text-navy">
-            Apport envisagé
-          </label>
-          <input
-            id="amount"
-            type="text"
-            name="amount"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            className="w-full rounded-xl border border-gold/20 bg-cream px-4 py-3 text-navy outline-none transition focus:border-gold focus:ring-1 focus:ring-gold"
-            placeholder="Ex. 50 000 €"
-          />
-        </div>
-      </div>
-
       <div>
         <label htmlFor="message" className="mb-2 block text-sm font-medium text-navy">
           Message
@@ -203,7 +157,8 @@ export function ContactForm({ requestType }: ContactFormProps) {
           className="mt-1 h-4 w-4 accent-gold"
         />
         <span className="text-sm text-slate-dark">
-          J’accepte que {property.brand} traite mes données pour répondre à ma demande.
+          J’accepte que les propriétaires du studio traitent mes données pour répondre à
+          ma demande.
         </span>
       </label>
 

@@ -38,7 +38,7 @@ export function VirtualTour() {
                 />
               </div>
               <p className="text-center text-sm text-slate">
-                Si la visite ne s&rsquo;affiche pas, ouvrez-la directement :
+                Si la visite ne s’affiche pas, ouvrez-la directement :
                 <a
                   href={virtualTour.url}
                   target="_blank"
@@ -61,8 +61,8 @@ export function VirtualTour() {
                   Visite virtuelle 360°
                 </h3>
                 <p className="mt-3 text-slate">
-                  Certaines plateformes de visite virtuelle bloquent l&rsquo;intégration dans un iframe.
-                  Vous pouvez lancer la visite ici ou l&rsquo;ouvrir dans un nouvel onglet.
+                  Certaines plateformes de visite virtuelle bloquent l’intégration dans un iframe.
+                  Vous pouvez lancer la visite ici ou l’ouvrir dans un nouvel onglet.
                 </p>
                 <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                   <button

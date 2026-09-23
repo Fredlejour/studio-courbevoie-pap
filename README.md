@@ -1,12 +1,12 @@
-# Lejour Consulting — Investissement Courbevoie
+# Studio Courbevoie — Vente directe propriétaire (PAP)
 
-Site premium de présentation d'une opportunité d'investissement immobilier sélectionnée par Lejour Consulting.
+Site premium de vente directe d'un studio par ses propriétaires.
 
-Premier bien présenté : un studio dans la résidence étudiante Studéa Léonard de Vinci à Courbevoie.
+Bien présenté : un studio dans la résidence étudiante Studéa Léonard de Vinci à Courbevoie.
 
 ## Stack
 
-- Next.js 15 App Router + TypeScript
+- Next.js 16 App Router + TypeScript
 - Tailwind CSS v4
 - Framer Motion (animations parcimonieuses)
 - Lucide React (icônes)

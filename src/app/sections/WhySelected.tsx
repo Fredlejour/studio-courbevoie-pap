@@ -38,8 +38,8 @@ export function WhySelected() {
     <section className="bg-cream py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Pourquoi Lejour Consulting a sélectionné cette opportunité ?"
-          subtitle="Chez Lejour Consulting, nous ne diffusons pas simplement des biens immobiliers. Chaque opportunité est sélectionnée selon une analyse portant sur son emplacement, sa rentabilité, son potentiel patrimonial et la simplicité de sa gestion afin de proposer des investissements cohérents et documentés."
+          title="Pourquoi ce studio a retenu notre attention ?"
+          subtitle="Lors de notre acquisition, nous avons étudié ce bien selon des critères objectifs : son emplacement, son rendement, son potentiel patrimonial et la simplicité de sa gestion. Ce sont ces mêmes atouts, documentés, que nous mettons en avant aujourd'hui."
           centered
         />
 

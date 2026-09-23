@@ -19,7 +19,7 @@ export function FinancialPlan() {
         />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <MetricCard label="Prix FAI" value={formatCurrency(inv.price)} accent />
+          <MetricCard label="Prix de vente" value={formatCurrency(inv.price)} accent />
           <MetricCard label="Revenus annuels" value={`${formatCurrency(inv.annualRent)} TTC`} />
           <MetricCard label="Taxe foncière" value={`${formatCurrency(inv.propertyTax)} / an`} />
           <MetricCard label="Revenu après taxe foncière" value={`${formatCurrency(inv.incomeAfterTax)} / an`} accent />
@@ -38,7 +38,7 @@ export function FinancialPlan() {
           <p className="mt-4 max-w-3xl leading-relaxed text-cream/80">
             Une simulation personnalisée pourra être réalisée selon l’apport, la durée et les
             conditions de financement de l’acquéreur. Les rendements affichés sont calculés sur
-            le prix de vente honoraires inclus de {formatCurrency(inv.price)}, hors frais de
+            le prix de vente de {formatCurrency(inv.price)}, hors frais de
             notaire, financement, fiscalité personnelle et éventuelles charges non intégrées.
           </p>
         </motion.div>

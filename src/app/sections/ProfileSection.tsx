@@ -15,8 +15,8 @@ export function ProfileSection() {
     <section id="interlocuteur" className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
-          title="Votre interlocuteur"
-          subtitle="Un accompagnement personnalisé de la première question jusqu'à la signature."
+          title="Vos interlocuteurs : les propriétaires"
+          subtitle="Vente directe : vous échangez avec les propriétaires du studio de la première question jusqu'à la signature."
           centered
         />
 
@@ -61,40 +61,60 @@ export function ProfileSection() {
                 ))}
               </div>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <a
-                  href={`tel:${presenter.phone.replace(/\s/g, "")}`}
-                  className={cn(
-                    "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    "border border-gold/10 bg-white text-navy hover:border-gold/30"
-                  )}
-                >
-                  <Phone className="h-4 w-4 text-gold" />
-                  {presenter.phone}
-                </a>
-                <a
-                  href={`mailto:${presenter.email}`}
-                  className={cn(
-                    "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    "border border-gold/10 bg-white text-navy hover:border-gold/30"
-                  )}
-                >
-                  <Mail className="h-4 w-4 text-gold" />
-                  {presenter.email}
-                </a>
-                <a
-                  href={presenter.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    "border border-gold/10 bg-white text-navy hover:border-gold/30"
-                  )}
-                >
-                  <Globe className="h-4 w-4 text-gold" />
-                  lejourconsulting.com
-                </a>
+              <div className="mt-6 rounded-2xl border border-gold/15 bg-white p-5 md:p-6">
+                <p className="text-xs font-semibold uppercase tracking-widest text-gold">
+                  Pourquoi vendons-nous ce studio ?
+                </p>
+                <p className="mt-3 leading-relaxed text-slate-dark">
+                  À la suite de l’acquisition de notre résidence principale, nous avons
+                  décidé de procéder à un arbitrage de notre patrimoine immobilier. La
+                  vente de ce studio nous permettra notamment de mobiliser une partie du
+                  capital consacré à ce nouveau projet immobilier.
+                </p>
               </div>
+
+              {(presenter.phone || presenter.email || presenter.website) && (
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  {presenter.phone && (
+                    <a
+                      href={`tel:${presenter.phone.replace(/\s/g, "")}`}
+                      className={cn(
+                        "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                        "border border-gold/10 bg-white text-navy hover:border-gold/30"
+                      )}
+                    >
+                      <Phone className="h-4 w-4 text-gold" />
+                      {presenter.phone}
+                    </a>
+                  )}
+                  {presenter.email && (
+                    <a
+                      href={`mailto:${presenter.email}`}
+                      className={cn(
+                        "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                        "border border-gold/10 bg-white text-navy hover:border-gold/30"
+                      )}
+                    >
+                      <Mail className="h-4 w-4 text-gold" />
+                      {presenter.email}
+                    </a>
+                  )}
+                  {presenter.website && (
+                    <a
+                      href={presenter.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(
+                        "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                        "border border-gold/10 bg-white text-navy hover:border-gold/30"
+                      )}
+                    >
+                      <Globe className="h-4 w-4 text-gold" />
+                      {presenter.website}
+                    </a>
+                  )}
+                </div>
+              )}
 
               <a
                 href="#contact"
