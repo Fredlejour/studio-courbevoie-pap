@@ -45,8 +45,8 @@ export function Hero() {
               ses revenus locatifs.
             </h1>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-cream/80">
-              Vous recherchez un investissement déjà exploité, générant des revenus dès votre
-              acquisition et ne nécessitant aucune gestion locative ?
+              Vous recherchez un investissement en exploitation, avec des revenus dès
+              l’acquisition et une gestion locative entièrement déléguée ?
             </p>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-cream/70">
               Ce studio meublé de 17,92 m² (18 m²) situé dans la résidence étudiante{" "}
