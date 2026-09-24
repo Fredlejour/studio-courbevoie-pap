@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import { property } from "@/data/property";
-import { legalModals, type LegalModalId } from "@/data/legalContent";
-import { Modal } from "@/app/components/Modal";
+import { legalModals } from "@/data/legalContent";
+import { useLegalModal } from "@/app/components/LegalModalProvider";
+import { useConsent } from "@/app/components/consent/ConsentProvider";
 
 export function Footer() {
-  const [activeModal, setActiveModal] = useState<LegalModalId | null>(null);
-  const active = legalModals.find((m) => m.id === activeModal) ?? null;
+  const legalModal = useLegalModal();
+  const consent = useConsent();
 
   return (
     <footer className="border-t border-gold/10 bg-navy py-12 text-cream/60">
@@ -28,26 +28,27 @@ export function Footer() {
             <button
               key={modal.id}
               type="button"
-              onClick={() => setActiveModal(modal.id)}
+              onClick={() => legalModal?.open(modal.id)}
               className="text-cream/60 transition-colors hover:text-gold"
             >
               {modal.footerLabel}
             </button>
           ))}
+          {consent && (
+            <button
+              type="button"
+              onClick={consent.openPreferences}
+              className="text-cream/60 transition-colors hover:text-gold"
+            >
+              Préférences cookies
+            </button>
+          )}
         </nav>
 
         <p className="mt-8 text-xs leading-relaxed text-cream/40">
           Les informations présentées sur ce site sont fournies à titre indicatif et ne constituent pas un conseil en investissement. Les performances passées ne préjugent pas des performances futures. Les conditions, rendements et chiffres mentionnés sont susceptibles d’évolution et doivent être confirmés directement auprès des propriétaires.
         </p>
       </div>
-
-      <Modal
-        open={active !== null}
-        onClose={() => setActiveModal(null)}
-        title={active?.title ?? ""}
-      >
-        {active?.content}
-      </Modal>
     </footer>
   );
 }

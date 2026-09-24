@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { property } from "@/data/property";
+import { ConsentProvider } from "@/app/components/consent/ConsentProvider";
+import { LegalModalProvider } from "@/app/components/LegalModalProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -79,8 +81,6 @@ const jsonLd = {
   },
 };
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -100,24 +100,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        {children}
-
-        {GA_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_ID}');
-              `}
-            </Script>
-          </>
-        )}
+        <LegalModalProvider>
+          <ConsentProvider>{children}</ConsentProvider>
+        </LegalModalProvider>
       </body>
     </html>
   );

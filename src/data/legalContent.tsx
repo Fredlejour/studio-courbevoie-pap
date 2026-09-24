@@ -110,6 +110,16 @@ export const legalModals: LegalModalConfig[] = [
           Vous pouvez exercer ces droits en écrivant aux propriétaires via le formulaire de
           contact disponible sur ce site.
         </p>
+        <section>
+          <h3 className="mb-2 text-base font-semibold text-navy">Mesure d&apos;audience</h3>
+          <p>
+            Avec votre consentement, ce site utilise Google Analytics 4 afin de mesurer son
+            audience et de mieux comprendre l&apos;utilisation des différentes sections du
+            site. Google Analytics n&apos;est chargé qu&apos;après votre acceptation. Vous
+            pouvez retirer votre consentement à tout moment depuis le lien « Préférences
+            cookies » situé en bas du site.
+          </p>
+        </section>
       </div>
     ),
   },
@@ -120,11 +130,27 @@ export const legalModals: LegalModalConfig[] = [
     content: (
       <div className="space-y-4">
         <p>
-          Le site utilise uniquement les cookies nécessaires à son fonctionnement ainsi que, le
-          cas échéant, des outils de mesure d&apos;audience.
+          Lors de votre première visite, un bandeau vous permet d&apos;accepter ou de refuser
+          la mesure d&apos;audience. Votre choix est conservé dans un cookie nommé{" "}
+          <strong className="text-navy">pap_consent</strong>, pendant une durée d&apos;environ
+          6 mois.
         </p>
-        <p>Aucun cookie publicitaire n&apos;est installé sans votre consentement.</p>
-        <p>Vous pouvez modifier vos préférences directement depuis votre navigateur.</p>
+        <p>
+          Google Analytics n&apos;est activé qu&apos;après votre consentement. Aucun cookie de
+          mesure n&apos;est déposé avant votre choix, et aucun si vous refusez.
+        </p>
+        <p>
+          Après acceptation, Google Analytics 4 peut déposer des cookies de mesure ({" "}
+          <strong className="text-navy">_ga</strong> et{" "}
+          <strong className="text-navy">_ga_*</strong>) utilisés pour établir des statistiques
+          de fréquentation.
+        </p>
+        <p>
+          Vous pouvez modifier ou retirer votre consentement à tout moment via le lien{" "}
+          « Préférences cookies » situé en bas du site. En cas de retrait, les cookies de
+          mesure déjà déposés sont supprimés.
+        </p>
+        <p>Aucun cookie publicitaire n&apos;est utilisé sur ce site.</p>
       </div>
     ),
   },
